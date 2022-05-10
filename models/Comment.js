@@ -26,16 +26,18 @@ Comment.init(
         review_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'post',
+                model: 'review',
                 key: 'id',
             },
-        },
+        }
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment'
-    },
+    }
 );
 
 module.exports = Comment;
