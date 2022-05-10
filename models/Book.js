@@ -13,7 +13,7 @@ Book.init(
             autoIncrement: true,
         },
         isbn: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             unique: true,
             allowNull: false,
         },
@@ -28,6 +28,9 @@ Book.init(
         description: {
             type: DataTypes.TEXT,
         },
+        cover_img: {
+            type: DataTypes.STRING,
+        },
         page_count: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -38,13 +41,15 @@ Book.init(
                 model: 'club',
                 key: 'id',
             },
-        },
+        }
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'book'
-    },
+    }
 );
 
 module.exports = Book;

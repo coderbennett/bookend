@@ -18,12 +18,12 @@ Reader.init(
             unique: true
         },
         username: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
         email: {
-            type: DataType.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isEmail: true,
