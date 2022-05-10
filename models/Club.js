@@ -16,6 +16,11 @@ Club.init(
             allowNull: false,
             unique: true
         },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'club'
     },
 );
 
