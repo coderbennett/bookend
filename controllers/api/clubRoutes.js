@@ -12,3 +12,19 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get('/:id', async (req, res) => {
+    try {
+        const clubData = await Club.findByPk(req.params.id, {
+            include: [{ model: Book }]
+        });
+
+        if (!clubData) {
+            res.status(404).json({message: 'No club found with this id.'});
+        }
+
+        res.status(200).json(clubData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
