@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS bookend_db;
+CREATE DATABASE bookend_db;
