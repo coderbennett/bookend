@@ -3,6 +3,10 @@
         <meta charset="UTF-8" />
         <title>Bookend</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"> <!-- TODO build our own themed dialog CSS? -->
     </head>
     <body>
         <header class="bg-slate-200 p-8">
@@ -11,16 +15,22 @@
             <nav>
                 <ul class="list-none">
                     <li>Dashboard</li>
-                    <li>Login</li>
+                    <li><button id="login-button">Login</button></li>
                 </ul>
             </nav>
         </header>
         <main>
             {{{body}}}
         </main>
-        <footer>
+        <div id="dialog" class="bg-white" title="Test Dialog">
+            <p>
+                Test Dialog
+            </p>
+        </div>
+        <footer class="m-4">
             <p>Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved.</p>
             <p>Licensed under the terms of the MIT License.</p>
         </footer>
     </body>
+    <script src="/js/login.js"></script>
 </html>
