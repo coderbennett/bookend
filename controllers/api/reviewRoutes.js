@@ -33,3 +33,20 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post('/', async (req, res) => {
+    try {
+        const reviewData = await Review.create({
+            title: req.body.title,
+            body: req.body.body,
+            reader_id: req.session.user_id,
+            book_id: req.body.book_id
+        });
+
+        res.status(200).json(reviewData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+module.exports = router;
