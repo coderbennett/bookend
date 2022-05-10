@@ -22,10 +22,20 @@
         <main>
             {{{body}}}
         </main>
-        <div id="dialog" class="bg-white" title="Test Dialog">
-            <p>
-                Test Dialog
-            </p>
+        <div id="dialog" title="Login">
+            <p>Enter your login credentials:</p>
+            <p>&nbsp;</p>
+            <form id="login-form" class="flex flex-col">
+                <div class="flex-initial">
+                    <label for="login-email">Email</label>
+                    <input id="login-email" class="w-100" name="login-email"></input>
+                </div>
+                <div class="flex-initial">
+                    <label for="login-password">Password</label>
+                    <input id="login-password" class="w-100" name="login-password" type="password"></input>
+                </div>
+                <button id="login-submit-button" type="submit">Log In</button>
+            </form>
         </div>
         <footer class="m-4">
             <p>Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved.</p>
