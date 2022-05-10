@@ -8,27 +8,35 @@ Book.init(
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true,
-            autoincrement: true,
-            unique: true
-        },
-        username: {
-            type: DataType.STRING,
-            allowNull: false,
             unique: true,
+            primaryKey: true,
+            autoIncrement: true,
         },
-        email: {
-            type: DataType.STRING,
+        isbn: {
+            type: DataTypes.INTEGER,
+            unique: true,
             allowNull: false,
-            validate: {
-                isEmail: true,
-            },
         },
-        password: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [8],
+        },
+        author: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
+            type: DataTypes.TEXT,
+        },
+        page_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        club_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'club',
+                key: 'id',
             },
         },
     },
