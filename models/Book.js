@@ -31,5 +31,7 @@ Book.init(
                 len: [8],
             },
         },
-    }
-)
+    },
+);
+
+module.exports = Book;
