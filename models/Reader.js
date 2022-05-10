@@ -37,6 +37,18 @@ Reader.init(
             },
         },
     },
+    {
+        hooks: {
+            beforeCreate: async (newReaderData) => {
+                newReaderData.password = await bcrypt.hash(newReaderData.password, 10);
+                return newReaderData;
+            },
+            beforeUpdate: async (updateReaderData) => {
+                updateReaderData.password = await bcrypt.hash(updateReaderData.password, 10);
+                return updateReaderData;
+            }
+        }
+    }
 );
 
 module.exports = Reader;
