@@ -39,3 +39,29 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+router.post('/login', async (req, res) => {
+    try {
+        const readerData = await Reader.findOne({ where: { email: req.body.email }});
+
+        if (!readerData) {
+            res.status(400).json({message: "Invalid email or password. Please try again."});
+            return;
+        }
+
+        const validPassword = await readerData.checkPassword(req.body.password);
+
+        if (!validPassword) {
+            res.status(400).json({message: "Invalid email or password. Please try again."});
+            return;
+        }
+
+        req.session.save(() => {
+            req.session.user_id = readerData.id;
+            req.session.LoggedIn = true;
+            res.json({reader: readerData, message: "You are now logged in."});
+        });
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
