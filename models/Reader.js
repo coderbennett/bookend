@@ -47,7 +47,12 @@ Reader.init(
                 updateReaderData.password = await bcrypt.hash(updateReaderData.password, 10);
                 return updateReaderData;
             }
-        }
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'reader'
     }
 );
 
