@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 router.get("/", (req, res) =>
 {
-    res.json({ message: "Route hit!" });
+    res.render("homepage");
 });
 
 module.exports = router;
