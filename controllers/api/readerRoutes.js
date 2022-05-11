@@ -21,6 +21,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// Used for signup
 router.post('/', async (req, res) => {
     try {
         const readerData = await Reader.create({
@@ -67,7 +68,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.LoggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });
