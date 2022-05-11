@@ -18,7 +18,7 @@
                     <p>{{review.body}}</p>
                     {{#each review.comments as |comment|}}
                     <div>
-                        <h4 class="h4">By {{comment.reader_id}}</h4>
+                        <h4 class="h4">By {{display_username comment.reader_id}}</h4>
                         <p>{{comment.body}}</p>
                     </div>
                     {{/each}}
