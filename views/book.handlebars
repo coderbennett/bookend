@@ -43,10 +43,14 @@
     </div>
     <div class="container p-4">
         <p>Submit a review</p>
-        <form data-book-id="{{book.id}}">
-            <textarea class="container border-2 rounded" rows="6"></textarea>
-            <button class="border-2 rounded my-2" type="submit">Submit</button>
+        <form id="review-form" data-book-id="{{book.id}}">
+            <label for="title">Title</label>
+            <input id="review-title-field" class="container border-2 rounded" name="title"></input>
+            <label for="body">Review</label>
+            <textarea id="review-body-field" class="container border-2 rounded" rows="6" name="body"></textarea>
+            <button id="review-submit-button" class="border-2 rounded my-2" type="submit">Submit</button>
         </form>
     </div>
 </section>
 <script src="/js/book.js"></script>
+<script src="/js/submit-review.js"></script>
