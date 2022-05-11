@@ -17,4 +17,22 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/edit/:id', async (req, res) => {
+    try {
+        const reviewData = await Review.findByPk(req.params.id);
+        if (reviewData) {
+            const review = reviewData.get({ plain: true });
+            console.log(review);
+            res.render('edit-review', {
+                layout: 'dashboard',
+                review,
+            });
+        } else { 
+            res.status(400).end();
+        }
+    } catch (err) {
+        res.redirect('dashboard');
+    }
+});
+
 module.exports = router;

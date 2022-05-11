@@ -1,0 +1,19 @@
+<div class="card">
+    <h2 class="card-header">Edit Post</h2>
+    <form class="card-body" id="edit-review-form">
+        <div>
+            <label class="form-label">Title:</label>
+            <input type="text" class="form-input" name="review-title" value="{{review.title}}">
+        </div>
+        <div>
+            <label class="form-label">Content:</label>
+            <textarea name="review-body" class="form-textarea form-input" data-number="8">{{review.body}}</textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Edit</button>
+        <input type="hidden" name="review-id" value="{{review.id}}">
+    </form>
+    <div class="card-body">
+        <button class="btn btn-primary" type="click" id="delete-btn">Delete</button>
+    </div>
+</div>
+<script src="/js/edit.js"></script>
