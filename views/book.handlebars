@@ -3,9 +3,9 @@
         <img class="m-4" src="https://via.placeholder.com/600x800" alt="The Book">
         <div class="flex flex-auto flex-col justify-start justify-items-stretch mx-4 my-4">
             <h2 class="h2">{{book.title}}</h2>
-            <h3 class="h3">By some author you've never heard of</h3>
-            <h3 class="h3">300 pages</h3>
-            <p class="grow my-auto">Long description...</p>
+            <h3 class="h3">By {{book.author}}</h3>
+            <h3 class="h3">{{book.page_count}} pages</h3>
+            <p class="grow my-auto">{{book.description}}</p>
         </div>
     </div>
     <div class="container p-4">
