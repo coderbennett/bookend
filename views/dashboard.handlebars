@@ -1,0 +1,46 @@
+{{!-- first section is for the favorite books carousel --}}
+<h2 class="mx-auto my-6 text-center">Favorite Books:</h2>
+<section class="flex flex-wrap justify-evenly">
+    {{!-- this section is for the favorite books carousel --}}
+    {{#each favorites.books as |favorite|}}
+    <div class="flex flex-col w-96 p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-coolGray-50 text-coolGray-800 my-6">
+        <div>
+            <img src="/assets/{{favorite.cover_img}}" alt="" class="object-cover w-full mb-4 h-60 sm:h-96 bg-coolGray-500">
+            <h2 class="mb-1 text-xl font-semibold">{{ favorite.title }}</h2>
+            <p class="text-sm text-coolGray-600">{{ favorite.description }}</p>
+        </div>
+    </div>
+    {{/each}}
+
+    {{!-- this section for handling carousel content?--}}
+    <div class="items-center space-y-2 text-xs sm:space-y-0 sm:space-x-3 sm:flex">
+        <span class="block">Page 2 of 4</span>
+        <div class="space-x-1">
+            <button title="previous" type="button" class="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow">
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button title="next" type="button" class="inline-flex items-center justify-center w-8 h-8 py-0 border rounded-md shadow">
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section>
+    {{#each reviews as |review|}}
+    <div class="max-w-lg p-4 shadow-md bg-coolGray-50 text-coolGray-800">
+        <div class="space-y-4">
+            <div class="space-y-2">
+                <a rel="noopener noreferrer" href="#" class="block">
+                    <h3 class="text-xl font-semibold text-rose-600">{{review.title}}</h3>
+                </a>
+                <p class="leading-snug text-coolGray-600">{{review.body}}</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</section>

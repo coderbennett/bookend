@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 
         req.session.save(() => {
             req.session.user_id = readerData.id;
-            req.session.logged_in = true;
+            req.session.LoggedIn = true;
 
             res.status(200).json(readerData);
         });

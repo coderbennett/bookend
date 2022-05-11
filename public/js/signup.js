@@ -22,7 +22,7 @@ signupShowDialogButton.click( () =>
 signupForm.on("submit", async (event) =>
 {
     event.preventDefault(); // Skip the standard form submission
-    const response = await fetch("/api/readers/",
+    const response = await fetch("/api/reader/",
     {
         method: 'POST',
         body: JSON.stringify({

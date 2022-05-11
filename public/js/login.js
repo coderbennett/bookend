@@ -21,7 +21,7 @@ loginShowDialogButton.click( () =>
 loginForm.on("submit", async (event) =>
 {
     event.preventDefault(); // Skip the standard form submission
-    const response = await fetch("/api/readers/login/",
+    const response = await fetch("/api/reader/login/",
     {
         method: 'POST',
         body: JSON.stringify({ email: loginEmailField.val().trim(), password: loginPasswordField.val() }),
