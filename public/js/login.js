@@ -1,5 +1,6 @@
 const loginDialog = $("#login-dialog");
 const loginShowDialogButton = $("#login-button");
+const loginForm = $("#login-form");
 const loginEmailField = $("#login-email");
 const loginPasswordField = $("#login-password");
 const loginSubmitButton = $("#login-submit-button");
@@ -17,7 +18,7 @@ loginShowDialogButton.click( () =>
     loginDialog.dialog("open");
 });
 
-loginSubmitButton.click( async (event) =>
+loginForm.on("submit", async (event) =>
 {
     event.preventDefault(); // Skip the standard form submission
     const response = await fetch("/api/readers/login/",
