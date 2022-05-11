@@ -1,5 +1,6 @@
 const signupDialog = $("#signup-dialog");
 const signupShowDialogButton = $("#signup-button");
+const signupForm = $("#signup-form");
 const signupUsernameField = $("#signup-username");
 const signupEmailField = $("#signup-email");
 const signupPasswordField = $("#signup-password");
@@ -18,7 +19,7 @@ signupShowDialogButton.click( () =>
     signupDialog.dialog("open");
 });
 
-signupSubmitButton.click( async (event) =>
+signupForm.on("submit", async (event) =>
 {
     event.preventDefault(); // Skip the standard form submission
     const response = await fetch("/api/readers/",
