@@ -5,7 +5,6 @@ const reviewBodyField = $("#review-body-field");
 reviewForm.on("submit", async (event) =>
 {
     event.preventDefault(); // Skip the standard form submission
-    console.log(reviewForm.data("bookId"));
     const response = await fetch("/api/review/",
     {
         method: 'POST',
@@ -15,9 +14,7 @@ reviewForm.on("submit", async (event) =>
     
     if(response.ok)
     {
-        //document.location.replace("/"); // Return to homepage
-        document.location.reload(); // Reload session to update login state on page
-        //document.location.replace("/"); // Return to homepage...again. Don't ask me why this is necessary
+        document.location.reload(); // Reload session to update state on page
     }
     else
     {

@@ -17,7 +17,6 @@ router.get("/book/:id", async (req, res) =>
     }
 
     const book = bookData.get({ plain: true });
-    console.log(book);
     res.render("book", { book: book, logged_in: req.session.LoggedIn });
 });
 
