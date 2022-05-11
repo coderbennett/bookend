@@ -12,7 +12,8 @@ commentForms.on("submit", async (event) =>
         body: JSON.stringify({ id: commentForm.data("reviewId"), body: commentField.val().trim() }),
         headers: { 'Content-Type': 'application/json' },
     });
-    
+    //alert(commentField.val().trim());
+    //alert(commentForm.data("reviewId"));
     if(response.ok)
     {
         document.location.reload(); // Reload session to update state on page

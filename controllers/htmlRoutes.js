@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, Review } = require('../models');
+const { Book, Review, Comment } = require('../models');
 
 router.get("/", (req, res) =>
 {
@@ -9,7 +9,7 @@ router.get("/", (req, res) =>
 router.get("/book/:id", async (req, res) =>
 {
     const bookData = await Book.findByPk(req.params.id, {
-        include: [{ model: Review }]
+        include: [{ model: Review, include: Comment  }]
     });
 
     if (!bookData) {
@@ -17,6 +17,12 @@ router.get("/book/:id", async (req, res) =>
     }
 
     const book = bookData.get({ plain: true });
+    console.log(book);
+    const commentData = await Comment.findAll();
+    const comments = commentData.map((comment) => {
+        return comment.get()
+    });
+    console.log(comments);
     res.render("book", { book: book, logged_in: req.session.LoggedIn });
 });
 
