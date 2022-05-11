@@ -3,7 +3,8 @@ const Club = require('./Club');
 const Comment = require('./Comment');
 const Reader = require('./Reader');
 const Review = require('./Review');
-const ReaderBook = require('./ReaderBook')
+const ReaderBook = require('./ReaderBook');
+const ReaderClub = require('./ReaderClub');
 
 Book.belongsTo(Club, {
     foreignKey: 'club_id',
@@ -67,15 +68,29 @@ Reader.belongsToMany(Book, {
      through: {
          model: ReaderBook,
          unique: false
-        }
-    });
+    }
+});
 
 Book.belongsToMany(Reader, {
      through: {
          model: ReaderBook,
          unique: false
-        }
-    });;
+    }
+});
+
+Reader.belongsToMany(Club, {
+    through: {
+        model: ReaderClub,
+        unique: false
+    }
+});
+
+Club.belongsToMany(Reader, {
+    through: {
+        model: ReaderClub,
+        unique: false
+    }
+});
 
 module.exports = {
     Book,
@@ -83,5 +98,6 @@ module.exports = {
     Comment,
     Reader,
     Review,
-    ReaderBook
+    ReaderBook,
+    ReaderClub
 };
