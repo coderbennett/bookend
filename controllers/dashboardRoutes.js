@@ -10,10 +10,7 @@ router.get('/', async (req, res) => {
             }
         });
 
-        const favoriteBookData = await ReaderBook.findAll( {
-            where: {
-                reader_id: req.session.user_id
-            },
+        const favoriteBookData = await Reader.findByPk(req.session.user_id, {
             include: {
                 model: Book
             }
@@ -21,7 +18,9 @@ router.get('/', async (req, res) => {
 
         const reviews = reviewData.map((review) => review.get({ plain: true }));
 
-        const favorites = favoriteBookData.map((favorite) => favorite.get({plain:true}));
+        const favorites = favoriteBookData.get({plain:true});
+
+        console.log(favorites);
 
         res.render("dashboard", { reviews, favorites, logged_in: req.session.LoggedIn });
     } catch (err) {

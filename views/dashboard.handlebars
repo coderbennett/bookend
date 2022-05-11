@@ -1,13 +1,16 @@
 {{!-- first section is for the favorite books carousel --}}
-<section>
+<h2 class="mx-auto my-6 text-center">Favorite Books:</h2>
+<section class="flex flex-wrap justify-evenly">
     {{!-- this section is for the favorite books carousel --}}
-    <div class="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-coolGray-50 text-coolGray-800">
+    {{#each favorites.books as |favorite|}}
+    <div class="flex flex-col w-96 p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-coolGray-50 text-coolGray-800 my-6">
         <div>
-            <img src="/assets/{{book.cover_image}}" alt="" class="object-cover w-full mb-4 h-60 sm:h-96 bg-coolGray-500">
-            <h2 class="mb-1 text-xl font-semibold">{{ book.title }}</h2>
-            <p class="text-sm text-coolGray-600">{{ book.description }}</p>
+            <img src="/assets/{{favorite.cover_img}}" alt="" class="object-cover w-full mb-4 h-60 sm:h-96 bg-coolGray-500">
+            <h2 class="mb-1 text-xl font-semibold">{{ favorite.title }}</h2>
+            <p class="text-sm text-coolGray-600">{{ favorite.description }}</p>
         </div>
     </div>
+    {{/each}}
 
     {{!-- this section for handling carousel content?--}}
     <div class="items-center space-y-2 text-xs sm:space-y-0 sm:space-x-3 sm:flex">
