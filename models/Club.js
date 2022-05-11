@@ -16,6 +16,13 @@ Club.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
+        },
+        reader_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'reader',
+                key: 'id'
+            },
         }
     },
     {
