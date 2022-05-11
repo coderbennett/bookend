@@ -16,13 +16,19 @@
                 <h3 class="h3">{{review.title}}</h3>
                 <div>
                     <p>{{review.body}}</p>
+                    {{#each review.comments as |comment|}}
                     <div>
-                        <h4 class="h4">Comment 1</h4>
-                        <p>I agree!</p>
+                        <h4 class="h4">By {{comment.reader_id}}</h4>
+                        <p>{{comment.body}}</p>
                     </div>
+                    {{/each}}
                     <div>
-                        <h4 class="h4">Comment 2</h4>
-                        <p>I disagree!</p>
+                        <p>Submit a comment for this review</p>
+                        <form class="comment-form" data-review-id="{{review.id}}">
+                            <label for="body">Comment</label>
+                            <textarea class="container border-2 rounded" rows="4" name="body"></textarea>
+                            <button class="comment-submit-button border-2 rounded my-2" class="border-2 rounded my-2" type="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
             </article>
@@ -42,3 +48,4 @@
 </section>
 <script src="/js/book.js"></script>
 <script src="/js/submit-review.js"></script>
+<script src="/js/submit-comment.js"></script>

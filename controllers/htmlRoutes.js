@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, Review } = require('../models');
+const { Reader, Book, Review, Comment } = require('../models');
 
 router.get("/", (req, res) =>
 {
@@ -9,7 +9,7 @@ router.get("/", (req, res) =>
 router.get("/book/:id", async (req, res) =>
 {
     const bookData = await Book.findByPk(req.params.id, {
-        include: [{ model: Review }]
+        include: [{ model: Review, include: [{ model: Comment, include: Reader }] }] // There be dragons within this nested include!
     });
 
     if (!bookData) {
