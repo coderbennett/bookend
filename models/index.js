@@ -63,25 +63,19 @@ Review.hasMany(Comment, {
     onDelete: 'CASCADE',
 });
 
-Reader.hasMany(ReaderBook, {
-    foreignKey: 'reader_id',
-    onDelete: 'CASCADE'
-});
+Reader.hasMany(Book, {
+     through: {
+         model: ReaderBook,
+         unique: false
+        }
+    });
 
-Book.hasMany(ReaderBook, {
-    foreignKey: 'book_id',
-    onDelete: 'CASCADE'
-});
-
-ReaderBook.belongsToMany(Reader, {
-    foreignKey: 'reader_id',
-    onDelete: 'CASCADE'
-});
-
-ReaderBook.belongsToMany(Book,{
-    foreignKey: 'book_id',
-    onDelete: 'CASCADE'
-});
+Book.belongsToMany(Reader, {
+     through: {
+         model: ReaderBook,
+         unique: false
+        }
+    });;
 
 module.exports = {
     Book,
