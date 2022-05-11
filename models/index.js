@@ -3,6 +3,7 @@ const Club = require('./Club');
 const Comment = require('./Comment');
 const Reader = require('./Reader');
 const Review = require('./Review');
+const ReaderBook = require('./ReaderBook')
 
 Book.belongsTo(Club, {
     foreignKey: 'club_id',
@@ -62,10 +63,25 @@ Review.hasMany(Comment, {
     onDelete: 'CASCADE',
 });
 
+Reader.belongsToMany(Book, {
+     through: {
+         model: ReaderBook,
+         unique: false
+        }
+    });
+
+Book.belongsToMany(Reader, {
+     through: {
+         model: ReaderBook,
+         unique: false
+        }
+    });;
+
 module.exports = {
     Book,
     Club,
     Comment,
     Reader,
-    Review
+    Review,
+    ReaderBook
 };

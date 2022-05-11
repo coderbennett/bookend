@@ -2,7 +2,7 @@ const logoutButton = $("#logout-button");
 
 logoutButton.click( async (event) =>
 {
-    const response = await fetch("/api/readers/logout/", { method: 'POST' });
+    const response = await fetch("/api/reader/logout/", { method: 'POST' });
     
     if(response.ok)
     {
