@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     // console.log(req.body);
     try {
-        const newClub = await Club.create({ ...req.body, reader_id: req.session.reader_id });
+        const newClub = await Club.create({ ...req.body, reader_id: req.session.user_id });
         // console.log(newClub);
         res.json(newClub);
     } catch (err) {
@@ -48,6 +48,11 @@ router.delete('/:id', async (req, res) => {
                 id: req.params.id
             }
         });
+        if(delClub) {
+            res.status(200).end()
+        } else {
+            res.status(400).end()
+        }
     } catch (err) {
         res.status(500).json(err);
     }
