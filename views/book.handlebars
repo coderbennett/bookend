@@ -1,7 +1,9 @@
 <section class="container">
-    <div class="container columns-2 flex justify-center p-4">
-        <img class="m-4" src="https://via.placeholder.com/600x800" alt="The Book">
-        <div class="flex flex-auto flex-col justify-start justify-items-stretch mx-4 my-4">
+    <div class="container flex flex-auto justify-center p-4">
+        <div class="w-50 m-4">
+            <img class="object-scale-down m-auto" src="/assets/{{book.cover_img}}" alt="Book Cover">
+        </div>
+        <div class="w-50 flex flex-auto flex-col justify-start justify-items-stretch mx-4 my-4">
             <h2 class="h2">{{book.title}}</h2>
             <h3 class="h3">By {{book.author}}</h3>
             <h3 class="h3">{{book.page_count}} pages</h3>
