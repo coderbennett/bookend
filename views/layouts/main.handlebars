@@ -15,8 +15,12 @@
             <nav>
                 <ul class="list-none">
                     <li>Dashboard</li>
+                    {{#if logged_in}}
+                    <li><button id="logout-button">Logout</button></li>
+                    {{else}}
                     <li><button id="login-button">Login</button></li>
                     <li><button id="signup-button">Sign Up</button></li>
+                    {{/if}}
                 </ul>
             </nav>
         </header>
@@ -63,5 +67,6 @@
         </footer>
     </body>
     <script src="/js/login.js"></script>
+    <script src="/js/logout.js"></script>
     <script src="/js/signup.js"></script>
 </html>
