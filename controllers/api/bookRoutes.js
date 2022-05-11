@@ -27,4 +27,30 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    try {
+        const newBook = await Book.create({ ...req.body });
+        res.json(newBook);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const delBook = Book.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        if (delBook) {
+            res.status(200).end();
+        } else {
+            res.status(400).end();
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;
