@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.put('/', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newBook = await Book.create({ ...req.body });
         res.json(newBook);
