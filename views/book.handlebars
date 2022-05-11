@@ -2,19 +2,20 @@
     <div class="container columns-2 flex justify-center p-4">
         <img class="m-4" src="https://via.placeholder.com/600x800" alt="The Book">
         <div class="flex flex-auto flex-col justify-start justify-items-stretch mx-4 my-4">
-            <h2 class="h2">The Book</h2>
-            <h3 class="h3">By some author you've never heard of</h3>
-            <h3 class="h3">300 pages</h3>
-            <p class="grow my-auto">Long description...</p>
+            <h2 class="h2">{{book.title}}</h2>
+            <h3 class="h3">By {{book.author}}</h3>
+            <h3 class="h3">{{book.page_count}} pages</h3>
+            <p class="grow my-auto">{{book.description}}</p>
         </div>
     </div>
     <div class="container p-4">
         <h2 class="h2">Reviews</h2>
         <div id="reviews">
+            {{#each book.reviews as |review|}}
             <article>
-                <h3 class="h3">Best. Book. Ever.</h3>
+                <h3 class="h3">{{review.title}}</h3>
                 <div>
-                    <p>This is the best book EVAR!!</p>
+                    <p>{{review.body}}</p>
                     <div>
                         <h4 class="h4">Comment 1</h4>
                         <p>I agree!</p>
@@ -25,21 +26,19 @@
                     </div>
                 </div>
             </article>
-            <article>
-                <h3 class="h3">Worst. Book. Ever.</h3>
-                <div>
-                    <p>This is the worst book EVAR!!</p>
-                    <div>
-                        <h4 class="h4">Comment 1</h4>
-                        <p>I agree!</p>
-                    </div>
-                    <div>
-                        <h4 class="h4">Comment 2</h4>
-                        <p>I disagree!</p>
-                    </div>
-                </div>
-            </article>
+            {{/each}}
         </div>
+    </div>
+    <div class="container p-4">
+        <p>Submit a review</p>
+        <form id="review-form" data-book-id="{{book.id}}">
+            <label for="title">Title</label>
+            <input id="review-title-field" class="container border-2 rounded" name="title"></input>
+            <label for="body">Review</label>
+            <textarea id="review-body-field" class="container border-2 rounded" rows="6" name="body"></textarea>
+            <button id="review-submit-button" class="border-2 rounded my-2" type="submit">Submit</button>
+        </form>
     </div>
 </section>
 <script src="/js/book.js"></script>
+<script src="/js/submit-review.js"></script>

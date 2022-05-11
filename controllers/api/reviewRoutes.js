@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
             title: req.body.title,
             body: req.body.body,
             reader_id: req.session.user_id,
-            book_id: req.body.book_id
+            book_id: req.body.id
         });
 
         res.status(200).json(reviewData);
