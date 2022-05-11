@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, Reader, Review } = require('../models');
+const { Book, Reader, Review, ReaderBook } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
@@ -10,9 +10,20 @@ router.get('/', async (req, res) => {
             }
         });
 
+        const favoriteBookData = await ReaderBook.findAll( {
+            where: {
+                reader_id: req.session.user_id
+            },
+            include: {
+                model: Book
+            }
+        });
+
         const reviews = reviewData.map((review) => review.get({ plain: true }));
 
-        res.render("dashboard", { reviews, logged_in: req.session.LoggedIn });
+        const favorites = favoriteBookData.map((favorite) => favorite.get({plain:true}));
+
+        res.render("dashboard", { reviews, favorites, logged_in: req.session.LoggedIn });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -26,14 +37,13 @@ router.get('/edit/:id', async (req, res) => {
             const review = reviewData.get({ plain: true });
             console.log(review);
             res.render('edit-review', {
-                layout: 'dashboard',
                 review,
             });
         } else { 
             res.status(400).end();
         }
     } catch (err) {
-        res.redirect('dashboard');
+        res.redirect('/dashboard');
     }
 });
 

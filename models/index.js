@@ -63,7 +63,7 @@ Review.hasMany(Comment, {
     onDelete: 'CASCADE',
 });
 
-Reader.hasMany(Book, {
+Reader.belongsToMany(Book, {
      through: {
          model: ReaderBook,
          unique: false
