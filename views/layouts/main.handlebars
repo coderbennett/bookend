@@ -3,6 +3,10 @@
         <meta charset="UTF-8" />
         <title>Bookend</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"> <!-- TODO build our own themed dialog CSS? -->
     </head>
     <body>
         <header class="bg-slate-200 p-8">
@@ -11,16 +15,53 @@
             <nav>
                 <ul class="list-none">
                     <li>Dashboard</li>
-                    <li>Login</li>
+                    <li><button id="login-button">Login</button></li>
+                    <li><button id="signup-button">Sign Up</button></li>
                 </ul>
             </nav>
         </header>
         <main>
             {{{body}}}
         </main>
-        <footer>
+        <div id="login-dialog" title="Login">
+            <p>Enter your login credentials:</p>
+            <p>&nbsp;</p>
+            <form id="login-form" class="flex flex-col">
+                <div class="flex-initial">
+                    <label for="login-email">Email</label>
+                    <input id="login-email" class="w-100" name="login-email"></input>
+                </div>
+                <div class="flex-initial">
+                    <label for="login-password">Password</label>
+                    <input id="login-password" class="w-100" name="login-password" type="password"></input>
+                </div>
+                <button id="login-submit-button" type="submit">Log In</button>
+            </form>
+        </div>
+        <div id="signup-dialog" title="Sign Up">
+            <p>Enter your imformation:</p>
+            <p>&nbsp;</p>
+            <form id="signup-form" class="flex flex-col">
+                <div class="flex-initial">
+                    <label for="signup-username">Username</label>
+                    <input id="signup-username" class="w-100" name="signup-email"></input>
+                </div>
+                <div class="flex-initial">
+                    <label for="signup-email">Email</label>
+                    <input id="signup-email" class="w-100" name="signup-email"></input>
+                </div>
+                <div class="flex-initial">
+                    <label for="signup-password">Password</label>
+                    <input id="signup-password" class="w-100" name="signup-password" type="password"></input>
+                </div>
+                <button id="signup-submit-button" type="submit">Sign Up</button>
+            </form>
+        </div>
+        <footer class="m-4">
             <p>Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved.</p>
             <p>Licensed under the terms of the MIT License.</p>
         </footer>
     </body>
+    <script src="/js/login.js"></script>
+    <script src="/js/signup.js"></script>
 </html>
