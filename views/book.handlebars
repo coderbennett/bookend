@@ -8,7 +8,7 @@
             <h3 class="h3">By {{book.author}}</h3>
             <h3 class="h3">{{book.page_count}} pages</h3>
             <p class="grow my-auto">{{book.description}}</p>
-            <p>{{isFavorite}}</p>
+            <p>Favorite book of {{bookFavoriteCount}}</p>
             <button id="favorite-book" class="border-2 rounded my-2" data-book-id="{{book.id}}" data-favorite="{{isFavorite}}">
                 {{#if isFavorite}}
                     In Favorites

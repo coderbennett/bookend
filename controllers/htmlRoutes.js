@@ -29,6 +29,15 @@ router.get("/book/:id", async (req, res) =>
 
     const book = bookData.get({ plain: true });
 
+    const bookFavoriteCount = await ReaderBook.count(
+        {
+            where:
+            {
+                book_id: req.params.id
+            }
+        }
+    )
+
     const bookFavoriteByReaderData = await ReaderBook.findOne(
         {
             where:
@@ -40,8 +49,8 @@ router.get("/book/:id", async (req, res) =>
     )
 
     const isFavorite = bookFavoriteByReaderData ? true : false;
-    
-    res.render("book", { book: book, isFavorite: isFavorite, logged_in: req.session.LoggedIn });
+
+    res.render("book", { book: book, bookFavoriteCount: bookFavoriteCount, isFavorite: isFavorite, logged_in: req.session.LoggedIn });
 });
 
 module.exports = router;
