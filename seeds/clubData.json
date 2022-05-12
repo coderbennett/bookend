@@ -1,38 +1,38 @@
 [
     {
         "name": "Biographies",
-        "hero_img": "1.png"
+        "hero_img": "biographies.png"
     },
     {
         "name": "Action and Adventure",
-        "hero_img": "2.png"
+        "hero_img": "action-adventure.png"
     },
     {
         "name":"Classic Literature",
-        "hero_img": "10.png"
+        "hero_img": "classic-lit.png"
     },
     {
         "name": "Graphic Novels",
-        "hero_img": "9.png"
+        "hero_img": "graphic-novel.png"
     },
     {
         "name": "Non-fiction",
-        "hero_img": "5.png"
+        "hero_img": "non-fiction.png"
     },
     {
         "name": "Mystery",
-        "hero_img": "8.png"
+        "hero_img": "mystery.png"
     },
     {
-        "name": "Fantasy",
-        "hero_img": "2.png"
+        "name": "Fantasy & Sci-Fi",
+        "hero_img": "sci-fi.png"
     },
     {
         "name": "Thriller",
-        "hero_img": "4.png"
+        "hero_img": "thriller.png"
     },
     {
         "name": "Comedy",
-        "hero_img": "7.png"
+        "hero_img": "comedy.png"
     }
 ]
