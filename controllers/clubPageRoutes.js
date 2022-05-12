@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Club, Book } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const allClubs = await Club.findAll();
         res.render('homepage', {
