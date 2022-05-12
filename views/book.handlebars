@@ -17,7 +17,7 @@
             <article>
                 <h3 class="h3">{{review.title}}</h3>
                 <div>
-                    <p>{{review.body}}</p>
+                    <p>{{{review.body}}}</p>
                     {{#each review.comments as |comment|}}
                     <div>
                         <h4 class="h4">By {{display_username comment.reader_id}}</h4>
