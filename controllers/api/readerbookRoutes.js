@@ -3,10 +3,13 @@ const { ReaderBook } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
-        const favoriteBookData = await ReaderBook.create(req.body);
+        const favoriteBookData = await ReaderBook.create({
+            book_id: req.body.book_id,
+            reader_id: req.session.user_id
+        });
         res.status(200).json(favoriteBookData);
     } catch (err) {
-        res.status(400).json(err);
+        res.status(500).json(err);
     }
 });
 
