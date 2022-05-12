@@ -1,0 +1,31 @@
+<section class="my-6 p-6 bg-coolGray-100 text-coolGray-900">
+	<form class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid">
+		<fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-coolGray-50">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Create a Book Club</p>
+				<p class="text-xs">The possibilities are endless. Create a new club, invite your friends and get reading!</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<h3>Club Name</h3>
+					<input id="clubname" class="p-2 border rounded" type="text" placeholder="Bookworms">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<h3>Club Cover Photo</h3>
+                    <select class="border rounded p-2">
+                        <option data-img="sci-fi.png">Scifi</option>
+                        <option data-img="classic-lit.png">Aged Books</option>
+                        <option data-img="mystery.png">Mystery</option>
+                        <option data-img="graphic-novel.png">Graphic Novel</option>
+                        <option data-img="non-fiction.png">Pyramids</option>
+                        <option data-img="thriller.png">Spooky Forest</option>
+                        <option data-img="comedy.png">Confetti</option>
+                        <option data-img="action-adventure.png">City Lights</option>
+                        <option data-img="biographies.png">Aged Photograph</option>
+                    </select>
+                <button type="button" class="px-4 py-2 border rounded-md border-coolGray-800">Create Club</button>
+			</div>
+		</fieldset>
+	</form>
+</section>
+<script src="/js/edit.js"></script>
