@@ -17,18 +17,18 @@
             <nav>
                 <div class="container flex justify-between h-16 mx-auto">
                     <div class="flex">
-                        <a href="/" aria-label="Back to homepage" class="flex items-center">
+                        <a href="/" aria-label="Back to homepage" class="flex items-center ml-0">
                             <img id="navLogo" src="/assets/logo_with_name.png"/>
                         </a>
-                        <div class="ml-2 items-center flex-shrink-0 hidden lg:flex">
-                            <ul class="items-stretch hidden space-x-3 lg:flex">
-                                <li><a href="/"><button class="text-textLight rounded p-2 hover:text-orange-600">Homepage</button></a></li>
+                        <div class="ml-2 items-center flex-shrink-0 flex">
+                            <ul class="items-stretch space-x-3 flex">
+                                <li><a href="/" ><button class="text-textLight rounded p-2 hover:text-orange-600">Homepage</button></a></li>
                                 <li><a href="/dashboard"><button  class="text-textLight p-2 hover:text-orange-600">Dashboard</button></a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="items-center flex-shrink-0 hidden lg:flex">
-                        <ul class="items-stretch hidden space-x-3 lg:flex">
+                    <div class="items-center flex-shrink-0 flex">
+                        <ul class="items-stretch space-x-3 flex">
                             {{#if logged_in}}
                             <li><button id="logout-button" class="text-textLight p-2 hover:text-orange-600">Logout</button></li>
                             {{else}}
