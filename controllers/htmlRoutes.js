@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Reader, Club, Book, Review, Comment } = require('../models');
+const { Reader, Club, Book, Review, Comment, ReaderBook } = require('../models');
 
 router.get("/", async (req, res) =>
 {
@@ -28,7 +28,20 @@ router.get("/book/:id", async (req, res) =>
     }
 
     const book = bookData.get({ plain: true });
-    res.render("book", { book: book, logged_in: req.session.LoggedIn });
+
+    const bookFavoriteByReaderData = await ReaderBook.findOne(
+        {
+            where:
+            {
+                reader_id: req.session.user_id,
+                book_id: req.params.id
+            }
+        }
+    )
+
+    const isFavorite = bookFavoriteByReaderData ? true : false;
+    
+    res.render("book", { book: book, isFavorite: isFavorite, logged_in: req.session.LoggedIn });
 });
 
 module.exports = router;
