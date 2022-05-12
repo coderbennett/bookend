@@ -3,13 +3,13 @@
         <div class="w-50 m-4">
             <img class="object-scale-down m-auto" src="/assets/{{book.cover_img}}" alt="Book Cover">
         </div>
-        <div class="w-50 flex flex-auto flex-col justify-start justify-items-stretch mx-4 my-4">
-            <h2 class="h2">{{book.title}}</h2>
-            <h3 class="h3">By {{book.author}}</h3>
-            <h3 class="h3">{{book.page_count}} pages</h3>
-            <p class="grow my-auto">{{book.description}}</p>
+        <div class="w-50 flex flex-auto flex-col rounded bg-secondaryColor p-4 justify-start justify-items-stretch mx-4 my-4">
+            <h2 class="h2 text-textDark">{{book.title}}</h2>
+            <h3 class="h3 text-textDark">By {{book.author}}</h3>
+            <h3 class="h3 text-textDark">{{book.page_count}} pages</h3>
+            <p class="grow my-auto text-textDark">{{book.description}}</p>
             <p>Favorite book of {{bookFavoriteCount}}</p>
-            <button id="favorite-book" class="border-2 rounded my-2" data-book-id="{{book.id}}" data-favorite="{{isFavorite}}">
+            <button id="favorite-book" class="border-2 rounded my-2 bg-darkColor text-textLight" data-book-id="{{book.id}}" data-favorite="{{isFavorite}}">
                 {{#if isFavorite}}
                     In Favorites
                 {{else}}
@@ -18,7 +18,7 @@
             </button>
         </div>
     </div>
-    <div class="container p-4">
+    <div class="container p-4 bg-secondaryColor rounded my-3">
         <h2 class="h2">Reviews</h2>
         <div id="reviews">
             {{#each book.reviews as |review|}}
@@ -45,14 +45,14 @@
             {{/each}}
         </div>
     </div>
-    <div class="container p-4">
+    <div class="container p-4 bg-secondaryColor rounded mt-3 mb-12">
         <p>Submit a review</p>
         <form id="review-form" data-book-id="{{book.id}}">
-            <label for="title">Title</label>
-            <input id="review-title-field" class="container border-2 rounded" name="title"></input>
+            <label for="title bg-primaryColor text-textLight">Title</label>
+            <input id="review-title-field" class="container border-2 rounded bg-lightColor text-textDark " name="title"></input>
             <label for="body">Review <span>(Markdown supported)</span></label>
-            <textarea id="review-body-field" class="container border-2 rounded" rows="6" name="body"></textarea>
-            <button id="review-submit-button" class="border-2 rounded my-2" type="submit">Submit</button>
+            <textarea id="review-body-field" class="container border-2 bg-lightColor text-textDark rounded" rows="6" name="body"></textarea>
+            <button id="review-submit-button" class="border-2 text-textDark my-2 rounded" type="submit">Submit</button>
         </form>
     </div>
 </section>

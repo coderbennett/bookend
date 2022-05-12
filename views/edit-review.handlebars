@@ -1,17 +1,17 @@
-<div class="card">
-    <h2 class="card-header">Edit Post</h2>
+<div class="card bg-secondaryColor m-4">
+    <h2 class="card-header text-textDark">Edit Post</h2>
     <form class="card-body" id="edit-review-form">
         <div>
-            <label class="form-label">Title:</label>
-            <input type="text" class="form-input" name="review-title" value="{{review.title}}">
+            <label class="form-label text-textDark">Title:</label>
+            <input type="text" class="form-input rounded bg-lightColor text-textDark" name="review-title" value="{{review.title}}">
         </div>
         <div>
-            <label class="form-label">Content:</label>
-            <textarea name="review-body" class="form-textarea form-input w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-yellow-600 border-coolGray-300 text-coolGray-900" data-number="8">{{{review.body}}}</textarea>
+            <label class="form-label text-textDark">Content:</label>
+            <textarea name="review-body" class="form-textarea form-input w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-yellow-600 bg-lightColor text-textDark" data-number="8">{{{review.body}}}</textarea>
         </div>
         <div class="card-body">
-            <button class="btn btn-primary" type="submit click">Edit</button>
-            <button class="btn btn-primary" type="click" id="delete-btn">Delete</button>
+            <button class="btn bg-primaryColor text-textLight" type="submit click">Edit</button>
+            <button class="btn bg-primaryColor text-textLight" type="click" id="delete-btn">Delete</button>
         </div>
         <div>
             <input type="hidden" name="review-id" value="{{review.id}}">
