@@ -17,6 +17,9 @@ Club.init(
             allowNull: false,
             unique: true
         },
+        hero_img: {
+            type: DataTypes.STRING
+        },
         reader_id: {
             type: DataTypes.INTEGER,
             references: {
