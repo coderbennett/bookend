@@ -1,31 +1,30 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Club extends Model {};
+class ReaderClub extends Model {};
 
-Club.init(
+ReaderClub.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            unique: true,
             primaryKey: true,
             autoIncrement: true,
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
             unique: true
-        },
-        hero_img: {
-            type: DataTypes.STRING
         },
         reader_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'reader',
                 key: 'id'
-            },
+            }
+        },
+        club_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'club',
+                key: 'id'
+            }
         }
     },
     {
@@ -33,8 +32,8 @@ Club.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'club'
+        modelName: 'readerclub'
     }
 );
 
-module.exports = Club;
+module.exports = ReaderClub;

@@ -19,9 +19,11 @@ router.get('/:id', async (req, res) => {
         const clubData = await Club.findOne({
             where: {id: req.params.id}
         });
+
+        const club = clubData.get({plain: true});
         res.render('clubpage', {
             layout: 'main',
-            clubData
+            club
         });
     } catch (err) {
         res.status(500).json(err);
