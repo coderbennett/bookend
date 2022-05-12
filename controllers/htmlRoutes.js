@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Reader, Club, Book, Review, Comment, ReaderBook } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) =>
 {
@@ -17,7 +18,7 @@ router.get("/", async (req, res) =>
     }
 });
 
-router.get("/book/:id", async (req, res) =>
+router.get("/book/:id", withAuth, async (req, res) =>
 {
     const bookData = await Book.findByPk(req.params.id, {
         include: [{ model: Review, include: [{ model: Comment, include: Reader }] }] // There be dragons within this nested include!

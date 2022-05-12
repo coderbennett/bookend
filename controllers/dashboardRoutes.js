@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Book, Reader, Review, ReaderBook } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         console.log(req.session);
         const reviewData = await Review.findAll( {
