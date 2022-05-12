@@ -11,8 +11,8 @@ const editFormHandler = async (event) => {
     const response = await fetch(`/api/review/${reviewId}`, {
         method: 'PUT',
         body: JSON.stringify({
-            review_title,
-            review_body,
+            title: review_title,
+            body: review_body,
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const deleteButtonHandler = async () => {
     await fetch(`/api/review/${reviewId}`, {
         method: 'DELETE'
     });
-    document.location.replace('/dashboard');
+    // document.location.replace('/dashboard');
 };
 
 document
