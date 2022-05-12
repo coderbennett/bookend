@@ -10,7 +10,9 @@ loginDialog.dialog(
     autoOpen: false,
     closeText: "",
     height: 350,
-    width: 500
+    width: 500,
+    modal: true,
+    position: ['center']
 });
 
 loginShowDialogButton.click( () =>
