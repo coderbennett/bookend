@@ -14,11 +14,11 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/new', async (req, res) => {
+router.get('/new', withAuth, async (req, res) => {
         res.render('newclub', { logged_in: req.session.LoggedIn});
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const clubData = await Club.findByPk(req.params.id, {
             include: Book
