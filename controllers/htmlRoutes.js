@@ -1,9 +1,20 @@
 const router = require('express').Router();
-const { Reader, Book, Review, Comment } = require('../models');
+const { Reader, Club, Book, Review, Comment } = require('../models');
 
-router.get("/", (req, res) =>
+router.get("/", async (req, res) =>
 {
-    res.render("homepage", { logged_in: req.session.LoggedIn });
+    try
+    {
+        const clubData = await Club.findAll();
+        const clubs = clubData.map((club) => club.get());
+        
+        res.render("homepage", { clubs: clubs, logged_in: req.session.LoggedIn });
+    }
+    catch(error)
+    {
+        console.log(error);
+        res.status(500).json(error);
+    }
 });
 
 router.get("/book/:id", async (req, res) =>
