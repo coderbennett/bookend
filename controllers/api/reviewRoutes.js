@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Review, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.findAll({
             include: [{ model: Comment }]
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.findByPk(req.params.id, {
             include: [
@@ -34,7 +35,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.create({
             title: req.body.title,
@@ -49,7 +50,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.update(req.body, {
             where: {
@@ -68,7 +69,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.destroy({
             where: {
