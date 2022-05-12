@@ -29,10 +29,10 @@
     },
     {
         "name": "Thriller",
-        "hero_img": "4.png"
+        "hero_img": "thriller.png"
     },
     {
         "name": "Comedy",
-        "hero_img": "7.png"
+        "hero_img": "comedy.png"
     }
 ]
