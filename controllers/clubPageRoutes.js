@@ -23,7 +23,8 @@ router.get('/:id', async (req, res) => {
         const club = clubData.get({plain: true});
         res.render('clubpage', {
             layout: 'main',
-            club
+            club: club,
+            logged_in: req.session.LoggedIn
         });
     } catch (err) {
         res.status(500).json(err);

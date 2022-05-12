@@ -7,13 +7,18 @@
         </div>
         <div>
             <label class="form-label">Content:</label>
-            <textarea name="review-body" class="form-textarea form-input" data-number="8">{{review.body}}</textarea>
+            <textarea name="review-body" class="form-textarea form-input w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-yellow-600 border-coolGray-300 text-coolGray-900" data-number="8">{{{review.body}}}</textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Edit</button>
-        <input type="hidden" name="review-id" value="{{review.id}}">
+        <div class="card-body">
+            <button class="btn btn-primary" type="submit click">Edit</button>
+            <button class="btn btn-primary" type="click" id="delete-btn">Delete</button>
+        </div>
+        <div>
+            <input type="hidden" name="review-id" value="{{review.id}}">
+        </div>
     </form>
-    <div class="card-body">
-        <button class="btn btn-primary" type="click" id="delete-btn">Delete</button>
-    </div>
+    {{!-- <div class="card-body">
+        
+    </div> --}}
 </div>
 <script src="/js/edit.js"></script>
