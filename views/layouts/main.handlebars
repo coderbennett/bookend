@@ -8,22 +8,36 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"> <!-- TODO build our own themed dialog CSS? -->
         <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">-->
+        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Poppins:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header class="bg-slate-200 p-8">
-            <h1 class="font-bold text-4xl">Bookend</h1>
-            <h2 class="font-bold text-2xl">The journey only begins once the book has ended</h2>
+        <header class="p-4 bg-primaryColor">
             <nav>
-                <ul class="list-none">
-                    <li><a href="/">Homepage</a></li>
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    {{#if logged_in}}
-                    <li><button id="logout-button">Logout</button></li>
-                    {{else}}
-                    <li><button id="login-button">Login</button></li>
-                    <li><button id="signup-button">Sign Up</button></li>
-                    {{/if}}
-                </ul>
+                <div class="container flex justify-between h-16 mx-auto">
+                    <div class="flex">
+                        <a href="/" aria-label="Back to homepage" class="flex items-center">
+                            <img id="navLogo" src="/assets/logo_with_name.png"/>
+                        </a>
+                        <div class="ml-2 items-center flex-shrink-0 hidden lg:flex">
+                            <ul class="items-stretch hidden space-x-3 lg:flex">
+                                <li><a href="/"><button class="text-textLight rounded p-2 hover:text-orange-600">Homepage</button></a></li>
+                                <li><a href="/dashboard"><button  class="text-textLight p-2 hover:text-orange-600">Dashboard</button></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="items-center flex-shrink-0 hidden lg:flex">
+                        <ul class="items-stretch hidden space-x-3 lg:flex">
+                            {{#if logged_in}}
+                            <li><button id="logout-button" class="text-textLight p-2 hover:text-orange-600">Logout</button></li>
+                            {{else}}
+                            <li><button id="login-button" class="text-textLight p-2 hover:text-orange-600">Login</button></li>
+                            <li><button id="signup-button" class="text-textLight p-2 hover:text-orange-600">Sign Up</button></li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </header>
         <main>
@@ -63,9 +77,12 @@
                 <button id="signup-submit-button" type="submit">Sign Up</button>
             </form>
         </div>
-        <footer class="m-4">
-            <p>Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved.</p>
-            <p>Licensed under the terms of the MIT License.</p>
+        <footer class="items-center p-4 bg-primaryColor">
+            <div class="items-center grid-flow-col">
+                <p class="text-textLight">Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved. 
+                <br> 
+                Licensed under the terms of the MIT License.</p>
+            </div>
         </footer>
     </body>
     <script src="/js/login.js"></script>
