@@ -20,11 +20,12 @@ router.get('/new', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const clubData = await Club.findOne({
-            where: {id: req.params.id}
+        const clubData = await Club.findByPk(req.params.id, {
+            include: Book
         });
 
         const club = clubData.get({plain: true});
+        console.log(club);
         res.render('clubpage', {
             layout: 'main',
             club: club,
