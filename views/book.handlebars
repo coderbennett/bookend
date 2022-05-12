@@ -9,7 +9,13 @@
             <h3 class="h3">{{book.page_count}} pages</h3>
             <p class="grow my-auto">{{book.description}}</p>
             <p>{{isFavorite}}</p>
-            <button id="favorite-book" class="border-2 rounded my-2" data-book-id="{{book.id}}">Favorite</button>
+            <button id="favorite-book" class="border-2 rounded my-2" data-book-id="{{book.id}}" data-favorite="{{isFavorite}}">
+                {{#if isFavorite}}
+                    In Favorites
+                {{else}}
+                    Add to Favorites
+                {{/if}}
+            </button>
         </div>
     </div>
     <div class="container p-4">
