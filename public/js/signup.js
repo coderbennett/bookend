@@ -11,7 +11,9 @@ signupDialog.dialog(
     autoOpen: false,
     closeText: "",
     height: 400,
-    width: 500
+    width: 500,
+    modal: true,
+    position: ['center']
 });
 
 signupShowDialogButton.click( () =>
