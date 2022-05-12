@@ -1,11 +1,11 @@
-<section class="flex flex-col items-center mx-0 bg-coolGray-100 text-coolGray-800">
+<section class="flex flex-col items-center mx-0 bg-secondaryColor text-textDark">
 	<div class="container text-center mx-0 bg-cover bg-no-repeat bg-center relative w-full h-96" style="background-image: url(/assets/{{club.hero_img}});">
-		<h1 class="text-4xl w-auto mt-44 font-bold leading-none sm:text-5xl"><span class="bg-white/75 rounded-2xl p-2">{{club.name}}</span></h1>
+		<h1 class="text-4xl w-auto mt-44 text-textDark font-bold leading-none sm:text-5xl"><span class="bg-white/75 rounded-2xl p-2">{{club.name}}</span></h1>
 	</div>
 </section>
-<section class="container mx-auto flex flex-wrap justify-evenly">
+<section class="container mx-auto my-6 flex flex-wrap justify-evenly">
     {{#each club.books as |book|}}
-    <div class="w-1/4 border-2 rounded-lg p-4 m-4">
+    <div class="w-1/4 border-2 rounded-lg p-4 m-4 bg-secondaryColor">
         <a href="/book/{{book.id}}">
             <img src="/assets/{{book.cover_img}}" alt="Book cover">
             <h2>{{book.title}}</h2>
