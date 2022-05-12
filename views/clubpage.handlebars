@@ -6,8 +6,10 @@
 <section class="container mx-auto flex flex-wrap justify-evenly">
     {{#each club.books as |book|}}
     <div class="w-1/4 border-2 rounded-lg p-4 m-4">
-        <img src="/assets/{{book.cover_img}}" alt="Placeholder">
-        <h2>{{book.title}}</h2>
+        <a href="/book/{{book.id}}">
+            <img src="/assets/{{book.cover_img}}" alt="Book cover">
+            <h2>{{book.title}}</h2>
+        </a>
     </div>
     {{/each}}
 </section>

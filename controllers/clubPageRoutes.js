@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
         });
 
         const club = clubData.get({plain: true});
-        console.log(club);
+        
         res.render('clubpage', {
             layout: 'main',
             club: club,
