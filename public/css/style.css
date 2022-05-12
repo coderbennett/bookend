@@ -1,0 +1,59 @@
+:root {
+    --bgColor: #e0fbfc;
+    --textDark: #293241;
+    --accentColor: #ee6c4d;
+    --primaryColor: #3d5a80;
+    --secondaryColor: #98c1d9;
+}
+
+#navLogo {
+    width: 96px;
+    height: 96px;
+}
+
+body {
+    background-color: var(--bgColor);
+    position: relative;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav li:hover {
+    background-color: var(--textDark);
+    border-radius: 6px;
+}
+
+a:hover {
+    color: var(--accentColor);
+}
+  
+main {
+    padding-bottom: 2.5rem; 
+}
+  
+footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 4.5rem;           
+ }
+
+.bg-primaryColor {
+    background-color: var(--primaryColor);
+}
+
+.bg-darkColor {
+    background-color: var(--textDark);
+}
+
+.text-textDark {
+    color: var(--textDark)
+}
+
+.text-textLight {
+    color: var(--bgColor)
+}
+
+.border-accentColor {
+    border-color: var(--accentColor);
+}
