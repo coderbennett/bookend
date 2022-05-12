@@ -9,7 +9,7 @@
     },
     {
         "name":"Classic Literature",
-        "hero_img": "10.png"
+        "hero_img": "classic-lit.png"
     },
     {
         "name": "Graphic Novels",
@@ -24,8 +24,8 @@
         "hero_img": "8.png"
     },
     {
-        "name": "Fantasy",
-        "hero_img": "2.png"
+        "name": "Fantasy & Sci-Fi",
+        "hero_img": "sci-fi.png"
     },
     {
         "name": "Thriller",
