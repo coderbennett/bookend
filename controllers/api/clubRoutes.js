@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Club, Book } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const clubData = await Club.findAll({
             include: [{ model: Book }]
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const clubData = await Club.findByPk(req.params.id, {
             include: [{ model: Book }]
@@ -29,7 +30,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     // console.log(req.body);
     try {
         const newClub = await Club.create({ ...req.body, reader_id: req.session.user_id });
@@ -41,7 +42,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const delClub = Club.destroy({
             where: {
