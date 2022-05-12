@@ -30,7 +30,7 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', withAuth, async (req, res) => {
     try {
         const reviewData = await Review.findByPk(req.params.id);
         if (reviewData) {
