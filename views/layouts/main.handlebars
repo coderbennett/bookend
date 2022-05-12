@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Poppins:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header class="p-4 bg-primaryColor">
+        <header class="p-4 bg-secondaryColor">
             <nav>
                 <div class="container flex justify-between h-16 mx-auto">
                     <div class="flex">
@@ -22,18 +22,18 @@
                         </a>
                         <div class="ml-2 items-center flex-shrink-0 flex">
                             <ul class="items-stretch space-x-3 flex">
-                                <li><a href="/" ><button class="text-textLight rounded p-2 hover:text-orange-600">Homepage</button></a></li>
-                                <li><a href="/dashboard"><button  class="text-textLight p-2 hover:text-orange-600">Dashboard</button></a></li>
+                                <li><a href="/" ><button class="text-textDark rounded p-2 hover:text-orange-600">Homepage</button></a></li>
+                                <li><a href="/dashboard"><button  class="text-textDark p-2 hover:text-orange-600">Dashboard</button></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="items-center flex-shrink-0 flex">
                         <ul class="items-stretch space-x-3 flex">
                             {{#if logged_in}}
-                            <li><button id="logout-button" class="text-textLight p-2 hover:text-orange-600">Logout</button></li>
+                            <li><button id="logout-button" class="text-textDark p-2 hover:text-orange-600">Logout</button></li>
                             {{else}}
-                            <li><button id="login-button" class="text-textLight p-2 hover:text-orange-600">Login</button></li>
-                            <li><button id="signup-button" class="text-textLight p-2 hover:text-orange-600">Sign Up</button></li>
+                            <li><button id="login-button" class="text-textDark p-2 hover:text-orange-600">Login</button></li>
+                            <li><button id="signup-button" class="text-textDark p-2 hover:text-orange-600">Sign Up</button></li>
                             {{/if}}
                         </ul>
                     </div>
@@ -77,9 +77,9 @@
                 <button id="signup-submit-button" type="submit">Sign Up</button>
             </form>
         </div>
-        <footer class="items-center p-4 bg-primaryColor">
+        <footer class="items-center p-4 bg-secondaryColor">
             <div class="items-center grid-flow-col">
-                <p class="text-textLight">Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved. 
+                <p class="text-textDark">Copyright 2022 Joey Bennett, Andrew Mason, and John Netzel. All rights reserved. 
                 <br> 
                 Licensed under the terms of the MIT License.</p>
             </div>

@@ -20,7 +20,7 @@ body {
 }
 
 nav li:hover {
-    background-color: var(--textDark);
+    background-color: var(--primaryColor);
     border-radius: 6px;
 }
 
@@ -43,8 +43,16 @@ footer {
     background-color: var(--primaryColor);
 }
 
+.bg-secondaryColor {
+    background-color: var(--secondaryColor);
+}
+
 .bg-darkColor {
     background-color: var(--textDark);
+}
+
+.bg-lightColor {
+    background-color: var(--bgColor);
 }
 
 .text-textDark {
