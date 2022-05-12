@@ -38,6 +38,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
             console.log(review);
             res.render('edit-review', {
                 review,
+                logged_in: req.session.LoggedIn
             });
         } else { 
             res.status(400).end();
