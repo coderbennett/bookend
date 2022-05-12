@@ -14,6 +14,10 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/new', async (req, res) => {
+        res.render('newclub', { logged_in: req.session.LoggedIn});
+});
+
 router.get('/:id', async (req, res) => {
     try {
         const clubData = await Club.findOne({
