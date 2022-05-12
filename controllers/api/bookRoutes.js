@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Book, Review } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const bookData = await Book.findAll();
 
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const bookData = await Book.findByPk(req.params.id, {
             include: [
@@ -27,7 +28,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newBook = await Book.create({ ...req.body });
         res.json(newBook);
@@ -36,7 +37,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const delBook = Book.destroy({
             where: {

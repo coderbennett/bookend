@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { Reader } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
         const readerData = await Reader.findAll();
 
@@ -11,7 +12,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     try {
         const readerData = await Reader.findByPk(req.params.id);
 

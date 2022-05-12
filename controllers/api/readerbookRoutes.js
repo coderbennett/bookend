@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { ReaderBook } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const favoriteBookData = await ReaderBook.create({
             book_id: req.body.book_id,
@@ -13,7 +14,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
         const favoriteBookData = await ReaderBook.destroy({
             where: {
