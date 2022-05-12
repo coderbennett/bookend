@@ -19,15 +19,15 @@
                 <div>
                     <p>{{{review.body}}}</p>
                     {{#each review.comments as |comment|}}
-                    <div>
+                    <div class="my-4">
                         <h4 class="h4">By {{display_username comment.reader_id}}</h4>
                         <p>{{{comment.body}}}</p>
                     </div>
                     {{/each}}
-                    <div>
+                    <div class="my-4">
                         <p>Submit a comment for this review</p>
                         <form class="comment-form" data-review-id="{{review.id}}">
-                            <label for="body">Comment</label>
+                            <label for="body">Comment <span>(Markdown supported)</span></label>
                             <textarea class="container border-2 rounded" rows="4" name="body"></textarea>
                             <button class="comment-submit-button border-2 rounded my-2" class="border-2 rounded my-2" type="submit">Submit</button>
                         </form>
@@ -42,7 +42,7 @@
         <form id="review-form" data-book-id="{{book.id}}">
             <label for="title">Title</label>
             <input id="review-title-field" class="container border-2 rounded" name="title"></input>
-            <label for="body">Review</label>
+            <label for="body">Review <span>(Markdown supported)</span></label>
             <textarea id="review-body-field" class="container border-2 rounded" rows="6" name="body"></textarea>
             <button id="review-submit-button" class="border-2 rounded my-2" type="submit">Submit</button>
         </form>
