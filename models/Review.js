@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const markdown = require('markdown');
 
 class Review extends Model {};
 
@@ -36,6 +37,16 @@ Review.init(
         }
     },
     {
+        hooks: {
+            beforeCreate: (newReview) => {
+                newReview.body =  markdown.parse(newReview.body);
+                return newReview;
+            },
+            beforeUpdate: (updatedReview) => {
+                updatedReview.body = markdown.parse(updatedReview.body);
+                return updatedReview;
+            }
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
