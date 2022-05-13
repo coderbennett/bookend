@@ -6,7 +6,11 @@ router.get("/", async (req, res) =>
 {
     try
     {
-        const clubData = await Club.findAll();
+        const clubData = await Club.findAll( {
+            where: {
+                reader_id: null
+            }
+        } );
         const clubs = clubData.map((club) => club.get());
         
         res.render("homepage", { clubs: clubs, logged_in: req.session.LoggedIn });
