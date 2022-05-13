@@ -10,5 +10,10 @@ module.exports = {
     parse_markdown: function(text)
     {
         return markdown.parse(text);
+    },
+
+    format_timestamp: function(timestamp)
+    {
+        return timestamp.toLocaleDateString() + " " + timestamp.toLocaleTimeString();
     }
 };
