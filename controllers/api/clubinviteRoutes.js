@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { ClubInvites } = require('../../models');
+const { ClubInvites, Reader } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -27,14 +27,26 @@ router.get('/:id', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
+        console.log('before we find the reader');
+        const readerData = await Reader.findOne({ 
+            where: {
+                username: req.body.username 
+            }
+        });
+        console.log('after we find the reader');
+        console.log(readerData);
+
+        const reader = readerData.get({ plain: true });
+
         const inviteData = await ClubInvites.create({
-            target_reader_id: req.body.target_reader,
+            target_reader_id: reader.id,
             sender_reader_id: req.session.user_id,
-            club_id
+            club_id: req.body.club_id
         });
 
         res.status(200).json(inviteData);
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 });

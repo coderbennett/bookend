@@ -5,6 +5,7 @@ const Reader = require('./Reader');
 const Review = require('./Review');
 const ReaderBook = require('./ReaderBook');
 const ReaderClub = require('./ReaderClub');
+const ClubInvites = require('./ClubInvites');
 
 Book.belongsTo(Club, {
     foreignKey: 'club_id',
@@ -92,6 +93,21 @@ Club.belongsToMany(Reader, {
     }
 });
 
+ClubInvites.belongsTo(Club, {
+    foreignKey: 'club_id',
+    onDelete: 'CASCADE',
+});
+
+ClubInvites.belongsTo(Reader, {
+    foreignKey: 'target_reader_id',
+    onDelete: 'CASCADE'
+});
+
+ClubInvites.belongsTo(Reader, {
+    foreignKey: 'sender_reader_id',
+    onDelete: 'CASCADE'
+});
+
 module.exports = {
     Book,
     Club,
@@ -99,5 +115,6 @@ module.exports = {
     Reader,
     Review,
     ReaderBook,
-    ReaderClub
+    ReaderClub,
+    ClubInvites
 };

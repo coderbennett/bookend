@@ -4,7 +4,6 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     try {
-        console.log(req.session);
         const reviewData = await Review.findAll( {
             where: {
                 reader_id: req.session.user_id
@@ -21,18 +20,18 @@ router.get('/', withAuth, async (req, res) => {
             where: {
                 target_reader_id: req.session.user_id
             },
-            include: { 
-               model: [ Book, Club ] 
-            }
+            include: [ { model: Club }, { model: Reader } ] 
         });
 
         const invites = inviteData.map((invite) => invite.get({ plain: true}));
+
+        const hasInvites = invites.length > 0;
 
         const reviews = reviewData.map((review) => review.get({ plain: true }));
 
         const favorites = favoriteBookData.get({plain:true});
 
-        res.render("dashboard", { reviews, favorites, hasInvites, invites, logged_in: req.session.LoggedIn });
+        res.render("dashboard", { reviews, favorites, invites, hasInvites, logged_in: req.session.LoggedIn });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
