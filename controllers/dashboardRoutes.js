@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, Reader, Review, ClubInvites, Club } = require('../models');
+const { Book, Reader, Review, ClubInvites, Club, ReaderClub } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -23,6 +23,12 @@ router.get('/', withAuth, async (req, res) => {
             include: [ { model: Club }, { model: Reader } ] 
         });
 
+        const clubData = await Club.findAll({ 
+            where: {
+                reader_id: req.session.user_id
+            }
+        });
+
         const invites = inviteData.map((invite) => invite.get({ plain: true}));
 
         const hasInvites = invites.length > 0;
@@ -31,7 +37,9 @@ router.get('/', withAuth, async (req, res) => {
 
         const favorites = favoriteBookData.get({plain:true});
 
-        res.render("dashboard", { reviews, favorites, invites, hasInvites, logged_in: req.session.LoggedIn });
+        const clubs = clubData.map((club) => club.get({plain:true}));
+
+        res.render("dashboard", { reviews, favorites, invites, hasInvites, clubs, logged_in: req.session.LoggedIn });
     } catch (err) {
         console.error(err);
         res.status(500).json(err);
