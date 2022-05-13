@@ -39,7 +39,7 @@
                 <a rel="noopener noreferrer" href="/dashboard/edit/{{review.id}}" class="block">
                     <h3 class="text-xl font-semibold text-textLight">{{review.title}}</h3>
                 </a>
-                <p class="leading-snug text-textLight">{{{review.body}}}</p>
+                <div class="markdown leading-snug text-textLight">{{{parse_markdown review.body}}}</div>
             </div>
         </div>
     </div>
