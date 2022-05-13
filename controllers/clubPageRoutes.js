@@ -26,9 +26,12 @@ router.get('/:id', withAuth, async (req, res) => {
 
         const club = clubData.get({plain: true});
         
+        const isOwner = (req.session.user_id === club.owner_id);
+
         res.render('clubpage', {
             layout: 'main',
             club: club,
+            isOwner,
             logged_in: req.session.LoggedIn
         });
     } catch (err) {
