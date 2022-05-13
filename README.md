@@ -20,6 +20,8 @@ Bookend is a full stack application that allows readers to create an account and
 
 ## Screenshot
 
+![Screen Shot 2022-05-12 at 9 13 33 PM](https://user-images.githubusercontent.com/99947655/168211624-1077d555-dc11-4a8c-91e1-3bcc07351e69.png)
+
 ## Code Examples
 
 This code example shows an html route used for displaying information on a single book.
