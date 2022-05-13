@@ -1,0 +1,16 @@
+.ui-widget-header {
+    background-image: none;
+    background-color: var(--bgColor);
+    border-color: var(--secondaryColor);
+    color: var(--secondaryColor);
+}
+
+.ui-widget-content {
+    background-image: none;
+    background-color: var(--secondaryColor);
+    color: var(--bgColor);
+}
+
+.ui-button-icon {
+    background-color: var(--secondaryColor);
+}
