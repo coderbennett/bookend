@@ -21,7 +21,7 @@ router.get("/", async (req, res) =>
 router.get("/book/:id", withAuth, async (req, res) =>
 {
     const bookData = await Book.findByPk(req.params.id, {
-        include: [{ model: Review, include: [{ model: Comment, include: Reader }] }] // There be dragons within this nested include!
+        include: [{ model: Review, include: [{ model: Comment, include: Reader }, { model: Reader }] }] // There be dragons within this nested include!
     });
 
     if (!bookData) {
@@ -48,7 +48,7 @@ router.get("/book/:id", withAuth, async (req, res) =>
             }
         }
     )
-
+    console.log(book.reviews);
     const isFavorite = bookFavoriteByReaderData ? true : false;
 
     res.render("book", { book: book, bookFavoriteCount: bookFavoriteCount, isFavorite: isFavorite, logged_in: req.session.LoggedIn });
