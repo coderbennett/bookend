@@ -33,6 +33,7 @@ router.post('/', withAuth, async (req, res) => {
         const newBook = await Book.create({ ...req.body });
         res.json(newBook);
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
