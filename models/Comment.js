@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const markdown = require('markdown');
 
 class Comment extends Model {};
 
@@ -33,16 +32,6 @@ Comment.init(
         }
     },
     {
-        hooks: {
-            beforeCreate: (newComment) => {
-                newComment.body =  markdown.parse(newComment.body);
-                return newComment;
-            },
-            beforeUpdate: (updatedComment) => {
-                updatedComment.body = markdown.parse(updatedComment.body);
-                return updatedComment;
-            }
-        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
