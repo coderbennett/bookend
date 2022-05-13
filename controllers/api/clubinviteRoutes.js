@@ -27,14 +27,11 @@ router.get('/:id', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        console.log('before we find the reader');
         const readerData = await Reader.findOne({ 
             where: {
                 username: req.body.username 
             }
         });
-        console.log('after we find the reader');
-        console.log(readerData);
 
         const reader = readerData.get({ plain: true });
 
