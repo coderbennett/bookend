@@ -26,6 +26,13 @@ Club.init(
                 model: 'reader',
                 key: 'id'
             },
+        },
+        owner_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'reader',
+                key: 'id'
+            }
         }
     },
     {
