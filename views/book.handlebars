@@ -23,14 +23,17 @@
         <div id="reviews">
             {{#each book.reviews as |review|}}
             <article>
-                <h3 class="h3">{{review.title}}</h3>
+                <div>
+                    <h3 class="h3">{{review.title}}</h3>
+                    <h4 class="h4">By {{review.reader_id}} on {{review.createdAt}}</h4>
+                </div>
                 <div>
                     <div class="markdown">
                         {{{parse_markdown review.body}}}
                     </div>
                     {{#each review.comments as |comment|}}
                     <div class="my-4">
-                        <h4 class="h4">By {{display_username comment.reader_id}}</h4>
+                        <h4 class="h4">By {{display_username comment.reader_id}} on {{comment.createdAt}}</h4>
                         <div class="markdown">
                             {{{parse_markdown comment.body}}}
                         </div>
