@@ -2,6 +2,29 @@
     <a href="/club/new"><button class="bg-darkColor text-textLight rounded p-2 m-2 hover:bg-sky-900 hover:text-orange-600">Create a New Club</button></a>
 </section>
 
+
+{{#if hasMessages}}
+<section class="flex flex-column justify-center">
+{{each messages as |message|}}
+    <div class="mx-auto flex items-start justify-between max-w-sm p-3 space-x-4 rounded-md bg-secondaryColor text-textDark">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="flex-shrink-0 w-6 h-6 my-1">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+        </svg>
+        <div class="flex flex-col flex-1 px-2 space-y-1">
+            <span class="text-sm font-semibold">Club Invitation</span>
+            <span class="text-sm">You've been invited to join clubname by username! <a href="#" class="hover:text-orange-600" id="acceptInvitation">Accept?</a></span>
+            
+        </div>
+        <button type="button" title="Close snackbar" class="border-transparent">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="flex-shrink-0 w-4 h-4 my-1">
+                <polygon points="427.314 107.313 404.686 84.687 256 233.373 107.314 84.687 84.686 107.313 233.373 256 84.686 404.687 107.314 427.313 256 278.627 404.686 427.313 427.314 404.687 278.627 256 427.314 107.313"></polygon>
+            </svg>
+        </button>
+    </div>
+{{/each}}
+</section>
+{{/if}}
+
 {{!-- second section is for the favorite books carousel --}}
 <h2 class="mx-auto my-6 font-bold text-xl text-textDark text-center">Favorite Books:</h2>
 <section class="flex flex-wrap justify-evenly">
@@ -11,7 +34,7 @@
         <div>
             <img src="/assets/{{favorite.cover_img}}" alt="" class="object-cover w-full mb-4 h-60 sm:h-96">
             <h2 class="mb-1 text-xl text-textLight font-semibold">{{ favorite.title }}</h2>
-            <p class="text-sm text-textLight text-coolGray-600">{{ favorite.description }}</p>
+            <p class="text-sm text-textLight">{{ favorite.description }}</p>
         </div>
     </div>
     {{/each}}
