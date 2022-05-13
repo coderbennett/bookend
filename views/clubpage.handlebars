@@ -3,6 +3,15 @@
 		<h1 class="text-4xl w-auto mt-44 text-textDark font-bold leading-none sm:text-5xl"><span class="bg-white/75 rounded-2xl p-2">{{club.name}}</span></h1>
 	</div>
 </section>
+
+{{#if isOwner}}
+<section class="flex flex-wrap justify-evenly">
+    <button class="bg-darkColor text-textLight rounded p-2 my-2 hover:bg-sky-900  hover:text-orange-600">Edit Club</button>
+    <button class="bg-darkColor text-textLight rounded p-2 my-2 hover:bg-sky-900 hover:text-orange-600">Delete Club</button>
+    <button class="bg-darkColor text-textLight rounded p-2 my-2 hover:bg-sky-900 hover:text-orange-600">Invite Reader</button>
+</section>
+{{/if}}
+
 <section class="container mx-auto my-6 flex flex-wrap justify-evenly">
     {{#each club.books as |book|}}
     <div class="w-1/4 border-2 rounded-lg p-4 m-4 bg-secondaryColor">
@@ -13,3 +22,47 @@
     </div>
     {{/each}}
 </section>
+
+{{#if isOwner}}
+<section class="my-6 p-6">
+
+	<form class="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid bg-secondaryColor shadow-sm rounded">
+		<fieldset class="grid grid-cols-4 gap-6 p-6">
+			<div class="space-y-2 col-span-full lg:col-span-1">
+				<p class="font-medium">Add a New Book</p>
+				<p class="text-xs">What is the next journey for you and your book club?</p>
+			</div>
+			<div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+				<div class="col-span-full sm:col-span-3">
+					<h3>Book Title</h3>
+					<input id="title" class="p-2 border rounded bg-lightColor text-textDark" type="text" placeholder="Return of the Sea Otter">
+				</div>
+				<div class="col-span-full sm:col-span-3">
+					<h3>Author</h3>
+					<input id="author" class="p-2 border rounded bg-lightColor text-textDark" type="text" placeholder="Todd McLeish">
+                </div>
+				<div class="col-span-full">
+					<h3>Description</h3>
+					<textarea id="description" class="p-2 border rounded w-3/4 bg-lightColor text-textDark" placeholder="The story of the animal that evaded extinction on the Pacific Coast."></textarea>
+                </div>
+				<div class="col-span-full sm:col-span-3">
+					<h3>Cover Image</h3>
+					<input type="file" name="cover_img" id="cover_img" class="px-8 p-2 border rounded bg-lightColor text-textDark">
+                </div>
+				<div class="col-span-full sm:col-span-3">
+					<h3>Page Count</h3>
+					<input id="page_count" class="p-2 border rounded bg-lightColor text-textDark" type="text" placeholder="227">
+                </div>
+				<div class="col-span-full sm:col-span-3">
+					<h3>ISBN</h3>
+					<input id="isbn" class="p-2 border rounded bg-lightColor text-textDark" type="text" placeholder="9781632171375">
+                </div>
+				<div class="col-span-full sm:col-span-3">
+                    <button id="addBookBtn" data-club="{{club.id}}" class="p-2 rounded bg-darkColor text-textLight hover:bg-sky-900 hover:text-orange-600">Add Book</button>
+                </div>
+			</div>
+		</fieldset>
+	</form>
+
+</section>
+{{/if}}
