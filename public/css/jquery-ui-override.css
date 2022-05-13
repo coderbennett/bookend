@@ -2,15 +2,20 @@
     background-image: none;
     background-color: var(--bgColor);
     border-color: var(--secondaryColor);
-    color: var(--secondaryColor);
+    color: var(--textDark);
 }
 
 .ui-widget-content {
     background-image: none;
     background-color: var(--secondaryColor);
-    color: var(--bgColor);
+    color: var(--textDark);
 }
 
 .ui-button-icon {
     background-color: var(--secondaryColor);
+}
+
+.ui-widget input, .ui-widget textarea {
+    background-color: var(--bgColor);
+    color: var(--textDark);
 }
