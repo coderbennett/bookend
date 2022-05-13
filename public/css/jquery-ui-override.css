@@ -1,3 +1,4 @@
+/* Override the jQuery UI styles to make them fit with our website design */
 .ui-widget-header {
     background-image: none;
     background-color: var(--bgColor);
@@ -17,5 +18,12 @@
 
 .ui-widget input, .ui-widget textarea {
     background-color: var(--bgColor);
+    color: var(--textDark);
+}
+
+.ui-state-default {
+    background-image: none;
+    background-color: var(--bgColor);
+    border-color: var(--secondaryColor);
     color: var(--textDark);
 }
