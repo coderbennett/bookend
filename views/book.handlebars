@@ -25,11 +25,15 @@
             <article>
                 <h3 class="h3">{{review.title}}</h3>
                 <div>
-                    <p>{{{parse_markdown review.body}}}</p>
+                    <div class="markdown">
+                        {{{parse_markdown review.body}}}
+                    </div>
                     {{#each review.comments as |comment|}}
                     <div class="my-4">
                         <h4 class="h4">By {{display_username comment.reader_id}}</h4>
-                        <p>{{{parse_markdown comment.body}}}</p>
+                        <div class="markdown">
+                            {{{parse_markdown comment.body}}}
+                        </div>
                     </div>
                     {{/each}}
                     <div class="my-4">
