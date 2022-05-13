@@ -6,7 +6,7 @@
 
 {{#if isOwner}}
 <section class="flex flex-wrap justify-left">
-    <button class="bg-darkColor text-textLight rounded p-2 m-2 hover:bg-sky-900 hover:text-orange-600">Invite Reader</button>
+    <button id="inviteModalBtn" class="bg-darkColor text-textLight rounded p-2 m-2 hover:bg-sky-900 hover:text-orange-600">Invite Reader</button>
 </section>
 {{/if}}
 
@@ -65,4 +65,18 @@
     <button class="bg-darkColor text-textLight rounded p-2 my-2 hover:bg-sky-900  hover:text-orange-600">Edit Club</button>
     <button class="bg-darkColor text-textLight rounded p-2 my-2 hover:bg-sky-900 hover:text-orange-600">Delete Club</button>
 </section>
+
+	<div id="inviteDialog" title="Login">
+		<p>Invite a User to your Club:</p>
+		<p>&nbsp;</p>
+		<form id="inviteForm" class="flex flex-col">
+			<div class="flex-initial">
+				<label for="invite-username">Username</label>
+				<input id="invite-username" class="w-100"></input>
+			</div>
+			<button id="inviteBtn" data-club="{{club.id}}">Send Invite</button>
+		</form>
+	</div>
+
+	<script src="/js/sendInvite.js"></script>
 {{/if}}
