@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Book, Reader, Review, ClubInvites, Club } = require('../models');
+const { Book, Reader, Review, ClubInvites, Club, ReaderClub } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -11,9 +11,9 @@ router.get('/', withAuth, async (req, res) => {
         });
 
         const favoriteBookData = await Reader.findByPk(req.session.user_id, {
-            include: {
-                model: Book
-            }
+            include: [
+                { model: Book }, { model: Club}
+            ]
         });
 
         const inviteData = await ClubInvites.findAll( {
@@ -43,7 +43,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         const reviewData = await Review.findByPk(req.params.id);
         if (reviewData) {
             const review = reviewData.get({ plain: true });
-            console.log(review);
             res.render('edit-review', {
                 review,
                 logged_in: req.session.LoggedIn

@@ -30,5 +30,5 @@ acceptInviteBtn.click(async (event) => {
         if (response2.ok) {
             document.location.reload();
         }
-    }
-})
+    } 
+});

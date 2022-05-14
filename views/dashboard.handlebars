@@ -2,6 +2,17 @@
     <a href="/club/new"><button class="bg-darkColor text-textLight rounded p-2 m-2 hover:bg-sky-900 hover:text-orange-600">Create a New Club</button></a>
 </section>
 
+<section class="flex flex-wrap justify-evenly">
+    {{#each favorites.clubs as |club| }}
+    <div class="w-1/4 flex flex-col justify-end border-2 rounded-lg p-4 m-4 bg-secondaryColor">
+        <div>
+            <img src="/assets/{{club.hero_img}}" alt="" class=" p-4">
+            <a href="/club/{{club.id}}"><h2 class="mb-1 text-xl text-textDark font-semibold">{{ club.name }}</h2></a>
+        </div>
+    </div>
+    {{/each}}
+</section>
+
 
 {{#if hasInvites}}
 <section class="flex flex-column justify-center">
@@ -58,7 +69,7 @@
 </section>
 
 <section class="flex flex-column justify-evenly">
-<h2 class="mx-auto my-6 font-bold text-xl text-textDark text-center">Your Reviews:</h2>
+<h2 class="mx-auto my-6 mb-10 font-bold text-xl text-textDark text-center">Your Reviews:</h2>
     {{#each reviews as |review|}}
     <div class="max-w-lg p-4 mx-auto mb-6 shadow-md rounded bg-primaryColor text-textLight">
         <div class="space-y-4">

@@ -60,6 +60,7 @@ router.delete('/:id', withAuth, async (req, res) => {
         if (!inviteData) {
             res.status(404).json(inviteData);
         }
+        res.status(200).json(inviteData);
     } catch (err) {
         res.status(500).json(err);
     }

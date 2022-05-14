@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Club, Book } = require('../../models');
+const { Club, Book, ReaderClub } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -31,13 +31,10 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 router.post('/', withAuth, async (req, res) => {
-    // console.log(req.body);
     try {
         const newClub = await Club.create({ ...req.body, reader_id: req.session.user_id, owner_id: req.session.user_id });
-        // console.log(newClub);
         res.json(newClub);
     } catch (err) {
-        // console.log(err);
         res.status(500).json(err);
     }
 });

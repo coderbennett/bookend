@@ -6,7 +6,11 @@ router.get("/", async (req, res) =>
 {
     try
     {
-        const clubData = await Club.findAll();
+        const clubData = await Club.findAll( {
+            where: {
+                reader_id: null
+            }
+        } );
         const clubs = clubData.map((club) => club.get());
         
         res.render("homepage", { clubs: clubs, logged_in: req.session.LoggedIn });
@@ -48,7 +52,6 @@ router.get("/book/:id", withAuth, async (req, res) =>
             }
         }
     )
-    console.log(book.reviews);
     const isFavorite = bookFavoriteByReaderData ? true : false;
 
     res.render("book", { book: book, bookFavoriteCount: bookFavoriteCount, isFavorite: isFavorite, logged_in: req.session.LoggedIn });
