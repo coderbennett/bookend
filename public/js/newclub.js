@@ -1,4 +1,4 @@
-const heroImg = $('#heroImg')
+const heroImg = $('#heroImg');
 const button = $('#createClubBtn');
 const clubName = $('#clubname');
 
@@ -8,7 +8,9 @@ $('#coverSelect').change(() => {
     heroImg.attr('style', 'background-image: url(/assets/' + image+ ")");
 });
 
-button.on("click", async () => {
+button.click(async (event) => {
+    event.preventDefault();
+
     let image = $( "select option:selected" ).data().image;
 
     const response = await fetch("/api/club/", {
@@ -19,17 +21,22 @@ button.on("click", async () => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    const response2 = await fetch("/api/readerclubs", {
-        method: 'POST',
-        body: JSON.stringify({
-            club_id: 0
-        }),
-        headers: { 'Content-Type': 'application/json'}
-    });
-
-    if(response.ok && response2.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert('Unable to create club!');
+    if(response.ok) {
+        addSelfToClub((await response.json()).id);
     }
 });
+
+async function addSelfToClub(club_id) {
+    console.log(club_id);
+    const response = await fetch("/api/readerclubs/", {
+        method: 'POST',
+        body: JSON.stringify({
+            club_id
+        }),
+        headers: { 'Content-Type': 'application/json'},
+    });
+
+    if(response.ok) {
+        document.location.replace('/dashboard');
+    }
+};

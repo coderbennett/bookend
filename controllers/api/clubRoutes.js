@@ -37,7 +37,7 @@ router.post('/', withAuth, async (req, res) => {
         // console.log(newClub);
         res.json(newClub);
     } catch (err) {
-        // console.log(err);
+        console.log(err);
         res.status(500).json(err);
     }
 });

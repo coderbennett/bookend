@@ -7,7 +7,7 @@ declineInviteBtn.click(async (event) => {
     const response = await fetch("/api/invites/" + declineInviteBtn.data('id'), {
         method: 'DELETE'
     });
-
+    console.log(response);
     if(response.ok) {
         document.location.reload();
     }
@@ -29,6 +29,8 @@ acceptInviteBtn.click(async (event) => {
 
         if (response2.ok) {
             document.location.reload();
+        } else {
+            console.log(response2);
         }
-    }
+    } 
 })

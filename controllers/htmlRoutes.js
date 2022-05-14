@@ -52,7 +52,6 @@ router.get("/book/:id", withAuth, async (req, res) =>
             }
         }
     )
-    console.log(book.reviews);
     const isFavorite = bookFavoriteByReaderData ? true : false;
 
     res.render("book", { book: book, bookFavoriteCount: bookFavoriteCount, isFavorite: isFavorite, logged_in: req.session.LoggedIn });
