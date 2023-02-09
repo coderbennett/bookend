@@ -9,7 +9,7 @@ const bookData = require('./bookData.json');
 const clubData = require('./clubData.json');
 const favoriteBookData = require('./favoriteBooks.json');
 
-const seedDatabase = async () => {
+export const seedDatabase = async () => {
     try {
         await sequelize.sync({ force: true });
     
@@ -30,4 +30,4 @@ const seedDatabase = async () => {
     }
 }
 
-seedDatabase();
+// seedDatabase();
