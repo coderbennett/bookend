@@ -1,7 +1,7 @@
 # Bookend
 
 ![License Badge](https://img.shields.io/badge/License-MIT-blue)  
-Deployed Application: https://glacial-plateau-74113.herokuapp.com/  
+Deployed Application: https://bookend.herokuapp.com/  
 GitHub Repository: https://github.com/coderbennett/bookend
 
 ## Table of Contents
