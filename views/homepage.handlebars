@@ -8,8 +8,9 @@
         <div class="w-1/4 flex flex-col justify-end border-2 rounded-lg p-4 m-4 bg-primaryColor">
             <a href="/club/{{club.id}}">
                 <img src="/assets/{{club.hero_img}}" alt="Club image">
+                {{#if logged_in}}
                 <h2 class="text-textLight">{{club.name}}</h2>
-                {{#if !logged_in}}
+                {{else}}
                 <p class="text-textLight">Sign up or log in to view this club.</p>
                 {{/if}}
             </a>
