@@ -3,17 +3,18 @@
     <p class="justify-center text-center text-textDark p-4 border-accentColor border-y-4">Bookend is a place where readers find community. <br> Our public book clubs will help you find your next read, 
     see other reader's reviews, and engage in topical discussions with others. <br> Looking for a platform for host your own bookclub? Create a private book club from your dashboard, invite your friends, and start reading! </p>
 </section>
+{{#if logged_in}}
 <section class="container my-4 mx-auto flex flex-wrap justify-evenly">
     {{#each clubs as |club|}}
         <div class="w-1/4 flex flex-col justify-end border-2 rounded-lg p-4 m-4 bg-primaryColor">
             <a href="/club/{{club.id}}">
                 <img src="/assets/{{club.hero_img}}" alt="Club image">
-                {{#if logged_in}}
                 <h2 class="text-textLight">{{club.name}}</h2>
-                {{else}}
-                <p class="text-textLight">Sign up or log in to view this club.</p>
-                {{/if}}
             </a>
         </div>
     {{/each}}
+</section>
+{{else}}
+<section class="container mx-auto flex flex-col items-center m-4 justify-center">
+    <p class="justify-center text-center text-textDark p-4 border-accentColor border-y-4">Please log in or sign up to get started!</p>
 </section>
