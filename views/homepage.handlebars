@@ -7,8 +7,14 @@
     {{#each clubs as |club|}}
         <div class="w-1/4 flex flex-col justify-end border-2 rounded-lg p-4 m-4 bg-primaryColor">
             <a href="/club/{{club.id}}">
+                {{#if logged_in}}
                 <img src="/assets/{{club.hero_img}}" alt="Club image">
                 <h2 class="text-textLight">{{club.name}}</h2>
+                {{#else}}
+                <img src="/assets/{{club.hero_img}}" alt="Club image">
+                <h2 class="text-textLight">{{club.name}}</h2>
+                <p class="text-textLight">Please sign up or log in to view this club.</p>
+                {{/if}}
             </a>
         </div>
     {{/each}}
